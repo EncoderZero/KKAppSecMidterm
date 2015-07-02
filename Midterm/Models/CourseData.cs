@@ -21,16 +21,17 @@ namespace Midterm.Models
         [ScaffoldColumn(false)]
         public int Id { get; set; }
         [DisplayName("Course Code")]
-        [Required(ErrorMessage = "A Course Code is required")]
+        [StringLength(10, ErrorMessage = "The Course Code Cannot Be"), Required(ErrorMessage = "A Course Code is required")]
         public string CourseCode { get; set; }
         [DisplayName("Course Name")]
         [Required(ErrorMessage = "A Course Name is required")]
         public string CourseName { get; set; }
         [DisplayName("Course Description")]
+        [DataType(DataType.MultilineText)] 
         [Required(ErrorMessage = "A Course Description is required")]
         public string CourseDescription { get; set; }
         [DisplayName("Course Cost")]
-        [Required(ErrorMessage = "A Course Cost is required")]
+        [Range(0, 9999999999999999.99, ErrorMessage = "The Cost must be between $0 and $9999999999999999.99 "), Required(ErrorMessage = "A Course Cost is required")]
         public decimal CourseCost { get; set; }
     }
 }
