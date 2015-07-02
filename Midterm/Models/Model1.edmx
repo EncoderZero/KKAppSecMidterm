@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseCode" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="CourseName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CourseDescription" Type="nvarchar(max)" Nullable="false" />
@@ -27,13 +27,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CourseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CourseDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CourseCost" Type="Decimal" Precision="20" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="DefaultConnections" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SchoolConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CourseDatas" EntityType="Self.CourseData" />
         </EntityContainer>
       </Schema>
@@ -41,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="DefaultConnections">
+        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="SchoolConnection">
           <EntitySetMapping Name="CourseDatas">
             <EntityTypeMapping TypeName="SchoolModel.CourseData">
               <MappingFragment StoreEntitySet="CourseData">

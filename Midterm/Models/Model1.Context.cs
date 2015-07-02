@@ -13,10 +13,10 @@ namespace Midterm.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DefaultConnections : DbContext
+    public partial class SchoolConnection : DbContext
     {
-        public DefaultConnections()
-            : base("name=DefaultConnections")
+        public SchoolConnection()
+            : base("name=SchoolConnection")
         {
         }
     
