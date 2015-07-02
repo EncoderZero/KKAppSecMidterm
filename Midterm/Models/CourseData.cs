@@ -11,13 +11,26 @@ namespace Midterm.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
+    [Bind(Exclude = "Id")]
     public partial class CourseData
     {
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
+        [DisplayName("Course Code")]
+        [Required(ErrorMessage = "A Course Code is required")]
         public string CourseCode { get; set; }
+        [DisplayName("Course Name")]
+        [Required(ErrorMessage = "A Course Name is required")]
         public string CourseName { get; set; }
+        [DisplayName("Course Description")]
+        [Required(ErrorMessage = "A Course Description is required")]
         public string CourseDescription { get; set; }
+        [DisplayName("Course Cost")]
+        [Required(ErrorMessage = "A Course Cost is required")]
         public decimal CourseCost { get; set; }
     }
 }
